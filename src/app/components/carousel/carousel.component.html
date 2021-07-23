@@ -1,0 +1,28 @@
+<div id="carouselIndicators{{indexList}}" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <ng-container *ngFor="let photo of photoImmoble; let i = index">
+            <button type="button" [attr.data-bs-target]="'#carouselIndicators' + indexList"
+                [attr.data-bs-slide-to]="i" [ngClass]="{active: i==0}" aria-current="true"
+                [attr.aria-label]="'Slide ' + i"></button>
+        </ng-container>
+    </div>
+
+    <div class="carousel-inner">
+        <ng-container *ngFor="let photo of photoImmoble; let i = index">
+            <div class="carousel-item" [ngClass]="{active: i==0}" data-bs-interval="10000000">
+                <img src="{{photo}}" class="d-block w-100" alt="...">
+            </div>
+        </ng-container>
+    </div>
+
+    <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselIndicators' + indexList"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselIndicators' + indexList"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

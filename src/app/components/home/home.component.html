@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <ng-container
+            *ngFor="let immobile of immobileList | paginate: { itemsPerPage: 20, currentPage: paginaAtual }; let i = index">
+            <app-cards class="col-md-6 col-sm-12" [cardImmoble]='immobile' [indexList]='i'></app-cards>
+        </ng-container>
+    </div>
+    <pagination-controls class="d-flex justify-content-center m-5" (pageChange)="paginaAtual = $event"
+        previousLabel="Voltar" nextLabel="Próximo">
+    </pagination-controls>
+</div>

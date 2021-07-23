@@ -1,0 +1,30 @@
+<div class="card mb-4">
+    <div class="row g-0">
+        <div class="col-md-6 carousel">
+            <app-carousel [photoImmoble]='cardImmoble.images' [indexList]='indexList'></app-carousel>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <div class="business-type">
+                    <span [innerHtml]="cardImmoble.pricingInfos.businessType == 'SALE'? 'vende-se' : 'aluga-se'"></span>
+                </div>
+                <h5 class="card-title" [innerHtml]="cardImmoble.address.city ? cardImmoble.address.city : '-Cidade-'">
+                </h5>
+                <p class="card-text"
+                    [innerHtml]="cardImmoble.address.neighborhood ? cardImmoble.address.neighborhood : '-Bairro-'"></p>
+                <button href="#" class="btn btn-primary btn-sm stretched-link">saiba mais</button>
+                <div class="price">
+                    <strong>{{cardImmoble.pricingInfos.price | currency:'BRL':true:'1.2-2'}}</strong>
+                    <small *ngIf="cardImmoble.pricingInfos.businessType == 'RENTAL'">/mês</small>
+                </div>
+                <div class="infos mt-3">
+                    <small>{{cardImmoble.usableAreas}}m²</small>
+                    <small *ngIf="cardImmoble.bedrooms"
+                        [innerHtml]="cardImmoble.bedrooms > 1 ? cardImmoble.bedrooms + ' quartos' : cardImmoble.bedrooms + ' quarto'"></small>
+                    <small *ngIf="cardImmoble.parkingSpaces"
+                        [innerHtml]="cardImmoble.parkingSpaces > 1 ? cardImmoble.parkingSpaces + ' vagas' : cardImmoble.parkingSpaces + ' vaga'"></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.infos {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel {
+    z-index: 10;
+}
+
+.business-type {
+    position: absolute;
+    right: 0;
+    background: #933939;
+    color: #fff;
+    width: 85px;
+    text-align: center;
+}
+
+.price {
+    position: absolute;
+    right: 0;
+    top: 90px;
+    padding-right: 20px;
+}
