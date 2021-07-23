@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <button class="btn btn-primary col-md-1 col-sm-12 mb-3" [routerLink]="['/home']"
+            routerLinkActive="router-link-active">voltar</button>
+        <div class="card mb-3 px-0">
+            <app-carousel class="detailsImmoble" [photoImmoble]='immobleDetails.images' [indexList]=0></app-carousel>
+            <div class="card-body">
+                <h5 class="card-title"
+                    [innerHtml]="immobleDetails.address.city ? immobleDetails.address.city : '-Cidade-'">
+                </h5>
+                <p class="card-text"
+                    [innerHtml]="immobleDetails.address.neighborhood ? immobleDetails.address.neighborhood : '-Bairro-'">
+                </p>
+                <p class="card-text"><small class="text-muted">{{immobleDetails.createdAt}}</small></p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { DetailsComponent } from './components/details/details.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     HeaderComponent,
     HomeComponent,
     CardsComponent,
-    CarouselComponent
+    CarouselComponent,
+    DetailsComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

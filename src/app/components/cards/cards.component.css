@@ -1,3 +1,11 @@
+.card :hover {
+    box-shadow: 0px 0px 10px 0px rgba(222,222,222,1);
+}
+
+.card-body {
+    height: 100%;
+}
+
 .infos {
     display: flex;
     justify-content: space-between;
@@ -17,6 +25,7 @@
     color: #fff;
     width: 85px;
     text-align: center;
+    box-shadow: 3px 3px rgba(0,0,0);
 }
 
 .price {
@@ -24,4 +33,10 @@
     right: 0;
     top: 90px;
     padding-right: 20px;
+}
+
+@media (max-width: 765px) {
+    .price {
+        top: 290px;
+    }
 }

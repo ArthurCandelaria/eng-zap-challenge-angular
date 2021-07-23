@@ -3,3 +3,30 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.typeList {
+    display: flex;
+    justify-content: flex-end;
+}
+
+a {
+    cursor: pointer;
+}
+
+.fa {
+    color: #999c9e;
+}
+
+.active {
+    color: #0d6efd !important;
+}
+
+/* a :hover {
+    box-shadow: 0px 0px 20px 0px rgb(111 111 111);
+} */
+
+@media (max-width: 765px) {
+    .typeList {
+        display: none;
+    }
+}
