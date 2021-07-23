@@ -4,14 +4,67 @@
             routerLinkActive="router-link-active">voltar</button>
         <div class="card mb-3 px-0">
             <app-carousel class="detailsImmoble" [photoImmoble]='immobleDetails.images' [indexList]=0></app-carousel>
-            <div class="card-body">
-                <h5 class="card-title"
+            <div class="card-body row">
+                <h1 class="card-title"
                     [innerHtml]="immobleDetails.address.city ? immobleDetails.address.city : '-Cidade-'">
-                </h5>
+                </h1>
                 <p class="card-text"
                     [innerHtml]="immobleDetails.address.neighborhood ? immobleDetails.address.neighborhood : '-Bairro-'">
                 </p>
-                <p class="card-text"><small class="text-muted">{{immobleDetails.createdAt}}</small></p>
+                <hr>
+                <div class="col-md-6">
+                    <div class="staks d-flex justify-content-start mb-3">
+                        <div class="usable-areas me-5">
+                            <i class="fa fa-object-ungroup" aria-hidden="true"></i>
+                            <p>{{immobleDetails.usableAreas}}m²</p>
+                        </div>
+                        <div class="bedrooms me-5">
+                            <i class="fa fa-bed" aria-hidden="true"></i>
+                            <span
+                                [innerHtml]="immobleDetails.bedrooms > 1 ? immobleDetails.bedrooms + ' quartos' : immobleDetails.bedrooms + ' quarto'"></span>
+                        </div>
+                        <div class="parking-spaces me-5">
+                            <i class="fa fa-car" aria-hidden="true"></i>
+                            <span
+                                [innerHtml]="immobleDetails.parkingSpaces > 1 ? immobleDetails.parkingSpaces + ' vagas' : immobleDetails.parkingSpaces + ' vaga'"></span>
+                        </div>
+                        <div class="bathrooms me-5">
+                            <i class="fa fa-bath" aria-hidden="true"></i>
+                            <span
+                                [innerHtml]="immobleDetails.bathrooms > 1 ? immobleDetails.bathrooms + ' banheiros' : immobleDetails.bathrooms + ' banheiro'"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row" *ngIf="immobleDetails.pricingInfos.businessType == 'SALE'">
+                        <div class="col-md-6 col-sm-12">
+                            <h3>vende-se</h3>
+                            <h2>{{immobleDetails.pricingInfos.price | currency : 'R$'}}</h2>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <ul>
+                                <li>condomínio: {{immobleDetails.pricingInfos.monthlyCondoFee | currency : 'R$'}}</li>
+                                <li>IPTU: {{immobleDetails.pricingInfos.yearlyIptu | currency : 'R$'}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="immobleDetails.pricingInfos.businessType == 'RENTAL'">
+                        <div class="col-md-6 col-sm-12">
+                            <h3>aluga-se</h3>
+                            <h2>{{immobleDetails.pricingInfos.rentalTotalPrice | currency : 'R$'}}<small>/mês</small>
+                            </h2>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <ul>
+                                <li>aluguel: {{immobleDetails.pricingInfos.price | currency : 'R$'}}</li>
+                                <li>condomínio: {{immobleDetails.pricingInfos.monthlyCondoFee | currency : 'R$'}}</li>
+                                <li>IPTU: {{immobleDetails.pricingInfos.yearlyIptu | currency : 'R$'}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-text"><small class="text-muted">Data do anúncio: {{immobleDetails.createdAt | date:
+                        'dd/MM/yyyy'}}</small></p>
             </div>
         </div>
     </div>

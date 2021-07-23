@@ -1,0 +1,10 @@
+.staks div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.staks i {
+    font-size: 34px;
+    color: #222;
+}

@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { GrupozapService } from '../../services/grupozap.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { GrupozapService } from '../../services/grupozap.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   immobileList!: any;
   page = 1;
@@ -20,28 +21,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     } else {
       this.isList = false
     }
+    
   }
 
   ngOnInit(): void {
 
     this.grupozapService.immobileList().subscribe(
       success => {
-        console.log(success);
         this.immobileList = success
       }, error => {
-        console.log(error);
+        // console.warn(error);
       }
     );
 
-  }
+    this.imgFormater();
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      document.querySelectorAll('.cardImmoble img').forEach(element => {
-        element.setAttribute("style", "height: 200px;");
-        console.log(element)
-      });
-    }, 100);
   }
 
   changeView(value: boolean) {
@@ -51,6 +45,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   pageChanged(event: any) {
     localStorage.setItem('page', event.toString());
+    this.imgFormater();
+  }
+
+  imgFormater() {
+    setTimeout(() => {
+      document.querySelectorAll('.cardImmoble img').forEach(element => {
+        element.setAttribute("style", "height: 200px;");
+      });
+    }, 100);
   }
 
 }
