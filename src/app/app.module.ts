@@ -12,6 +12,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ErrorComponent } from './error/error.component';
+import { PlataformsComponent } from './components/plataforms/plataforms.component';
+import { BrandsComponent } from './components/brands/brands.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ErrorComponent } from './error/error.component';
     CardsComponent,
     CarouselComponent,
     DetailsComponent,
-    ErrorComponent
+    ErrorComponent,
+    PlataformsComponent,
+    BrandsComponent
   ],
   imports: [
     BrowserModule,

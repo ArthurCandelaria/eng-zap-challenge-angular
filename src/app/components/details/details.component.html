@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
-        <button class="btn btn-primary col-md-1 col-sm-12 mb-3" [routerLink]="['/home']"
-            routerLinkActive="router-link-active">voltar</button>
+        <button class="btn btn-primary col-md-1 col-sm-12 mb-3" (click)="backHistory()">voltar</button>
         <div class="card mb-3 px-0">
             <app-carousel class="detailsImmoble" [photoImmoble]='immobleDetails.images' [indexList]=0></app-carousel>
             <div class="card-body row">

@@ -1,0 +1,17 @@
+.vivareal {
+    background: #1190cd;
+}
+
+.brand {
+    padding: 5px 20px;
+    height: 40px;
+    border-radius: 10px;
+    /* margin: 20px; */
+    border: solid 1px #999d9d;
+    padding: 5px 50px;
+}
+
+.brand:hover {
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    cursor: pointer;
+}

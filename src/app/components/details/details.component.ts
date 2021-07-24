@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit, AfterViewInit {
+export class DetailsComponent implements OnInit {
 
   immobleDetails: any;
   idRoute: any;
@@ -24,14 +24,15 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
     setTimeout(() => {
       document.querySelectorAll('.detailsImmoble img').forEach(element => {
         element.setAttribute("style", "height: 550px;");
       });
     }, 100);
+  }
+
+  backHistory() {
+    this.router.navigate(['/home']);
   }
 
 }

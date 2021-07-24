@@ -1,19 +1,21 @@
 <div class="container">
-    <div>
-        <img src="../../assets/images/logo_zap.png" class="logo" alt="Logo | Zap">
-        <img src="../../assets/images/logo-vivareal.png" class="logo" alt="Logo | vivareal">
+    <div class="row">
+        <div class="col-md-10">
+            <app-brands (listener)="reciverFeedback($event)"></app-brands>
+        </div>
+        <div class="col-md-2 typeList my-4">
+            <a (click)="changeView(false)"><i class="fa fa-th-large me-3" [ngClass]="{active: !isList}"
+                    aria-hidden="true"></i></a>
+            <a (click)="changeView(true)"><i class="fa fa-align-justify" [ngClass]="{active: isList}"
+                    aria-hidden="true"></i></a>
+        </div>
     </div>
-    <div class="typeList my-3">
-        <a (click)="changeView(false)"><i class="fa fa-th-large me-3" [ngClass]="{active: !isList}"
-                aria-hidden="true"></i></a>
-        <a (click)="changeView(true)"><i class="fa fa-align-justify" [ngClass]="{active: isList}"
-                aria-hidden="true"></i></a>
-    </div>
+    <hr>
     <div class="row">
         <ng-container
             *ngFor="let immobile of immobileList | paginate: { itemsPerPage: 20, currentPage: page }; let i = index">
-            <app-cards class="col-sm-12 cardImmoble" [ngClass]="isList ? 'col-md-12' : 'col-md-6'" [cardImmoble]='immobile'
-                [indexList]='i' [isList]=isList>
+            <app-cards class="col-sm-12 cardImmoble" [ngClass]="isList ? 'col-md-12' : 'col-md-6'"
+                [cardImmoble]='immobile' [indexList]='i' [isList]=isList>
             </app-cards>
         </ng-container>
     </div>
